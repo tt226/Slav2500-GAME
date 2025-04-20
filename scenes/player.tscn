@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://xdgsf5g01ux0"]
+[gd_scene load_steps=10 format=3 uid="uid://xdgsf5g01ux0"]
 
 [ext_resource type="Texture2D" uid="uid://cf3poteqhptb6" path="res://assets/sprites/Countess_Vampire/Idle.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://nb8x82s7k4id" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -50,6 +51,7 @@ radius = 11.0468
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(72, -8)
+script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-62, -67)
@@ -60,6 +62,6 @@ autoplay = "idle"
 frame_progress = 0.144415
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-62, -38)
+position = Vector2(-58, -26)
 scale = Vector2(1, 0.984375)
 shape = SubResource("CircleShape2D_smehm")
