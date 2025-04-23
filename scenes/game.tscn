@@ -1,12 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://celvkr3fbgxkw"]
+[gd_scene load_steps=5 format=3 uid="uid://celvkr3fbgxkw"]
 
 [ext_resource type="PackedScene" uid="uid://xdgsf5g01ux0" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://duslkqnve2t4d" path="res://scenes/blood_vial.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cyww6006j4dkx" path="res://scenes/blood_vial.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bpv81pqew7po" path="res://scenes/custom_health_bar.tscn" id="3_lnu2h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yqjtg"]
 
 [node name="Game" type="Node2D"]
-position = Vector2(-4, -8)
+position = Vector2(-22, -9)
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(39, -2)
@@ -20,8 +21,14 @@ position_smoothing_enabled = true
 position = Vector2(5, 6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(55, 3)
+position = Vector2(55, 2)
 shape = SubResource("WorldBoundaryShape2D_yqjtg")
 
 [node name="Area2D" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(264, -12)
+position = Vector2(184, -41)
+
+[node name="CustomHealthBar" parent="." instance=ExtResource("3_lnu2h")]
+offset_left = -78.0
+offset_top = -23.0
+offset_right = 97.0
+offset_bottom = -13.0

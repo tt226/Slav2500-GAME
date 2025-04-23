@@ -1,35 +1,44 @@
-[gd_scene load_steps=11 format=3 uid="uid://duslkqnve2t4d"]
+[gd_scene load_steps=11 format=3 uid="uid://cyww6006j4dkx"]
 
-[ext_resource type="Script" uid="uid://dd30hl8g7hoql" path="res://scripts/blood_vial.gd" id="1_32pog"]
+[ext_resource type="Script" uid="uid://dtp12w5hmw3mj" path="res://scripts/blood_vial.gd" id="1_32pog"]
 [ext_resource type="Texture2D" uid="uid://df2ev2otpxchp" path="res://assets/sprites/Countess_Vampire/Potion.png" id="2_w80vg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f2iyw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jytn3"]
 atlas = ExtResource("2_w80vg")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_voe3g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_32pog"]
 atlas = ExtResource("2_w80vg")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4y3n1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w80vg"]
 atlas = ExtResource("2_w80vg")
 region = Rect2(0, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iqbi5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2iyw"]
 atlas = ExtResource("2_w80vg")
 region = Rect2(16, 16, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pfs71"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_voe3g"]
 atlas = ExtResource("2_w80vg")
 region = Rect2(0, 32, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mlrb0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y3n1"]
 atlas = ExtResource("2_w80vg")
 region = Rect2(16, 32, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fre33"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_iqbi5"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jytn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32pog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w80vg")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f2iyw")
 }, {
@@ -38,35 +47,25 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4y3n1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iqbi5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pfs71")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mlrb0")
 }],
 "loop": true,
 "name": &"default",
-"speed": 6.0
+"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_x1dcc"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_w80vg"]
 radius = 4.0
 
-[node name="Area2D" type="Area2D"]
+[node name="blood_vial" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_32pog")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_fre33")
-autoplay = "default"
-frame_progress = 0.253887
+sprite_frames = SubResource("SpriteFrames_iqbi5")
+frame_progress = 0.988596
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_x1dcc")
+shape = SubResource("CircleShape2D_w80vg")
 
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

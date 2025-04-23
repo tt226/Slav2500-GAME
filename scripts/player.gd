@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
 # Constants
-const RUN_SPEED = 200.0
+const WALK_SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 const DOUBLE_JUMP_VELOCITY = -250.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # State Machine
-enum State { IDLE, RUN, JUMP, FALL }
+enum State { IDLE, WALK, JUMP, FALL }
 var state = State.IDLE
 
 # Flags
@@ -33,11 +33,11 @@ func update_state(delta: float) -> void:
 
 	# Horizontal Movement
 	if abs(input_x) > 0.1:
-		velocity.x = input_x * RUN_SPEED
+		velocity.x = input_x * WALK_SPEED
 		facing_right = input_x > 0
 		sprite.flip_h = not facing_right
 	else:
-		velocity.x = move_toward(velocity.x, 0, RUN_SPEED)
+		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 
 	# State Transitions
 	match state:
@@ -46,11 +46,11 @@ func update_state(delta: float) -> void:
 				velocity.y = JUMP_VELOCITY
 				state = State.JUMP
 			elif abs(input_x) > 0.1:
-				state = State.RUN
+				state = State.WALK
 			elif not is_on_floor():
 				state = State.FALL
 
-		State.RUN:
+		State.WALK:
 			if Input.is_action_just_pressed("jump"):
 				velocity.y = JUMP_VELOCITY
 				state = State.JUMP
@@ -70,7 +70,7 @@ func update_state(delta: float) -> void:
 			if is_on_floor():
 				has_double_jumped = false
 				if abs(input_x) > 0.1:
-					state = State.RUN
+					state = State.WALK
 				else:
 					state = State.IDLE
 
@@ -78,10 +78,10 @@ func update_animation() -> void:
 	match state:
 		State.IDLE:
 			play_animation("idle")
-		State.RUN:
-			play_animation("run")
+		State.WALK:
+			play_animation("walk")
 		State.JUMP, State.FALL:
-			play_animation("jump")  # Use separate "fall" if available
+			play_animation("jump")
 
 func play_animation(name: String) -> void:
 	if sprite.animation != name:
