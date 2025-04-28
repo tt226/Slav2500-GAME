@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw1bl1uk3o76l"]
+
+[ext_resource type="Script" uid="uid://dqu1dupwbkd1e" path="res://scripts/level_portal.gd" id="1_esam1"]
+
+[node name="level_portal" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_esam1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

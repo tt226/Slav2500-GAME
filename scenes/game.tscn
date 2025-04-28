@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://celvkr3fbgxkw"]
+[gd_scene load_steps=13 format=3 uid="uid://celvkr3fbgxkw"]
 
 [ext_resource type="PackedScene" uid="uid://xdgsf5g01ux0" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://3lcdtd7adlw4" path="res://assets/world/Tiles.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cyww6006j4dkx" path="res://scenes/blood_vial.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dxmwgap84tou0" path="res://assets/world/Background_0.png" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://dssfrbe0jrwgn" path="res://scenes/skeleton.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://cw1bl1uk3o76l" path="res://scenes/level_portal.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://b572v04goksxb" path="res://scenes/KillZone.tscn" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
@@ -442,8 +443,15 @@ sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gee14"]
 distance = -13.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0tnpc"]
+radius = 13.0
+height = 64.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u5sy4"]
+normal = Vector2(0.999774, -0.0212718)
+distance = 27.5257
+
 [node name="Game" type="Node2D"]
-position = Vector2(-7, 3)
 
 [node name="Background0" type="Sprite2D" parent="."]
 z_index = -5
@@ -453,17 +461,7 @@ texture = ExtResource("3_lbhrr")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 5
-position = Vector2(127, 2)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(-67, -57)
-zoom = Vector2(2, 2)
-limit_left = 0
-limit_top = -700
-limit_right = 2000
-limit_bottom = 0
-limit_smoothed = true
-position_smoothing_enabled = true
+position = Vector2(45, -8)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(128, -7)
@@ -502,3 +500,24 @@ z_index = -5
 position = Vector2(1898, -659)
 scale = Vector2(1.70833, 1.20673)
 texture = ExtResource("3_lbhrr")
+
+[node name="Skeleton2" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(1058, -70)
+
+[node name="blood_vial2" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(1180, -65)
+
+[node name="level_portal" parent="." instance=ExtResource("7_gee14")]
+position = Vector2(1628, -64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_portal"]
+shape = SubResource("CapsuleShape2D_0tnpc")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(-8, -42)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-7, 1)
+shape = SubResource("WorldBoundaryShape2D_u5sy4")

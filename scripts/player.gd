@@ -4,7 +4,7 @@ extends CharacterBody2D
 const WALK_SPEED = 100.0
 const JUMP_VELOCITY = -500.0
 const DOUBLE_JUMP_VELOCITY = -400.0
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 const BLOOD_COST = 5
 
 # State Machine
@@ -157,5 +157,5 @@ func take_damage(amount: int):
 	health_bar.remove_health(amount)
 
 func increase_health(amount: int):
-	health += amount
+	health = min(100, health + amount)
 	health_bar.add_health(amount)

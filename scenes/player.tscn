@@ -331,25 +331,34 @@ animations = [{
 height = 62.9841
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(72, -8)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ur7pv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visibility_layer = 3
-position = Vector2(-63, -65)
+position = Vector2(6, -64)
 scale = Vector2(1, 0.984375)
 sprite_frames = SubResource("SpriteFrames_fjrip")
 animation = &"attack 1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-64, -37)
+position = Vector2(3, -37)
 scale = Vector2(1, 0.984375)
 shape = SubResource("CapsuleShape2D_g2els")
 
 [node name="CustomHealthBar" parent="." instance=ExtResource("9_ur7pv")]
-offset_left = -78.0
-offset_top = -82.0
-offset_right = 47.0
-offset_bottom = -67.0
+offset_left = -9.00001
+offset_top = -81.0
+offset_right = 116.0
+offset_bottom = -66.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -47)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = -700
+limit_right = 2000
+limit_bottom = 0
+limit_smoothed = true
+position_smoothing_enabled = true
