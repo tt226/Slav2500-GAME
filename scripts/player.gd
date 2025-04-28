@@ -8,7 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 const BLOOD_COST = 5
 
 # State Machine
-enum State { IDLE, WALK, JUMP, FALL, ATTACK }
+enum State { IDLE, WALK, JUMP, FALL, ATTACK, DIE }
 var state = State.IDLE
 var health = 100
 
@@ -27,6 +27,9 @@ func _ready() -> void:
 	health_bar.setup_health_bar(health)
 	
 func _physics_process(delta: float) -> void:
+	if health <= 0:
+		state = State.DIE
+	
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
@@ -42,8 +45,8 @@ func update_state(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# If currently attacking, ignore normal state changes
-	if state == State.ATTACK:
+	# If currently attacking or dying, ignore normal state changes
+	if state == State.ATTACK || state == State.DIE:
 		return
 
 	# Attack Input
@@ -104,6 +107,8 @@ func update_animation() -> void:
 			play_animation("jump")
 		State.ATTACK:
 			play_animation("attack 1")  # Set your attack animation name here
+		State.DIE:
+			play_animation("die")
 
 func play_animation(animation_name: String) -> void:
 	if sprite.animation != animation_name:
@@ -126,7 +131,12 @@ func _on_sprite_frame_changed():
 					state = State.IDLE
 				else:
 					state = State.FALL
+	elif state == State.DIE:
+		if sprite.frame == 6:
+			stop_and_reset_scene()
 
+func stop_and_reset_scene():
+	get_tree().reload_current_scene()
 
 #@onready var blood_spawn_point = $BloodSpawnPoint
 
