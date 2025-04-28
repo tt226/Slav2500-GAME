@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 # Constants
 const WALK_SPEED = 100.0
-const JUMP_VELOCITY = -300.0
-const DOUBLE_JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -500.0
+const DOUBLE_JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # State Machine
@@ -124,7 +124,7 @@ func _on_sprite_frame_changed():
 					state = State.FALL
 
 
-@onready var blood_spawn_point = $BloodSpawnPoint
+#@onready var blood_spawn_point = $BloodSpawnPoint
 
 func throw_blood():
 	var blood = preload("res://scenes/blood_weapon.tscn").instantiate()

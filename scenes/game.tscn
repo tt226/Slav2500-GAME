@@ -437,7 +437,7 @@ texture = ExtResource("2_lnu2h")
 4:10/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_lbhrr"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gee14"]
@@ -455,7 +455,6 @@ texture = ExtResource("3_lbhrr")
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 5
 position = Vector2(127, 2)
-collision_layer = 3
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-67, -57)
@@ -466,6 +465,13 @@ limit_right = 2000
 limit_bottom = 0
 limit_smoothed = true
 position_smoothing_enabled = true
+
+[node name="CustomHealthBar" parent="Player" instance=ExtResource("3_lnu2h")]
+offset_left = -82.0
+offset_top = -88.0
+offset_right = 93.0
+offset_bottom = -78.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(128, -7)
@@ -481,14 +487,7 @@ scale = Vector2(-1.708, 1.207)
 texture = ExtResource("3_lbhrr")
 
 [node name="blood_vial" parent="." instance=ExtResource("2_yqjtg")]
-position = Vector2(177, -9)
-
-[node name="CustomHealthBar" parent="." instance=ExtResource("3_lnu2h")]
-offset_left = 406.0
-offset_top = -178.0
-offset_right = 581.0
-offset_bottom = -168.0
-metadata/_edit_use_anchors_ = true
+position = Vector2(302, -161)
 
 [node name="Killzone2" parent="." instance=ExtResource("7_u5sy4")]
 position = Vector2(50, 112)
