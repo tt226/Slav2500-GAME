@@ -10,6 +10,7 @@ extends CharacterBody2D
 
 var direction = -1
 var patrol_origin = Vector2.ZERO
+var shooting = false
 var attack_timer = 0.0
 
 func _ready():
@@ -17,17 +18,27 @@ func _ready():
 	sprite.play("walk")
 	sprite.connect("frame_changed", _on_frame_changed)
 	ray.enabled = true
-
+	
 func _on_frame_changed():
 	if sprite.animation == "hit" and sprite.frame == 12:
 		fire_projectile()
 		attack_timer = attack_interval
+		shooting = false
+	elif sprite.animation == "dead" and sprite.frame == 4:
+		queue_free()
 
 func _physics_process(delta):
+	if is_dead:
+		return
+	
+	if shooting:
+		return
+	
 	attack_timer -= delta
 
 	if ray.is_colliding() and ray.get_collider().name == "Player":
 		if attack_timer <= 0:
+			shooting = true
 			sprite.play("hit")
 			if direction == -1:
 				sprite.flip_h = false  # ← true for LEFT (because sprites usually face right by default)
@@ -65,12 +76,17 @@ func fire_projectile():
 var is_dead = false
 
 func die():
+	print('die')
 	if not is_dead:
+		set_process(false)
+		print('not dead yet')
 		is_dead = true
 		sprite.play("dead")  # Make sure "dead" animation exists
 		set_collision_layer(0)
 		set_collision_mask(0)
 		velocity = Vector2.ZERO
 
-func take_damage(_amount):
+func take_damage(amount):
+	print('damage taken')
+	print(amount)
 	die()
