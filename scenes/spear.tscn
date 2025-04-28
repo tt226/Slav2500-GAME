@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://e7mpbbqmqbs4"]
 
 [ext_resource type="Texture2D" uid="uid://d22c5cnh6pqb3" path="res://assets/sprites/Skeleton_Archer/Arrow.png" id="1_43rot"]
-[ext_resource type="Script" path="res://scripts/spear.gd" id="1_uf2bl"]
+[ext_resource type="Script" uid="uid://bbdgm7g0t6lpj" path="res://scripts/spear.gd" id="1_uf2bl"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uf2bl"]
 a = Vector2(-24, 0)

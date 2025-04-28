@@ -53,7 +53,6 @@ radius = 6.0
 
 [node name="Blood_weapon" type="Area2D"]
 position = Vector2(5, 3)
-collision_layer = 2
 script = ExtResource("2_23jcr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -64,5 +63,7 @@ position = Vector2(5, 0)
 shape = SubResource("CircleShape2D_hca0f")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.087
+wait_time = 0.417
 one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
