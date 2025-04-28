@@ -15,6 +15,6 @@ func _on_Timer_timeout():
 func _on_body_entered(body: Node2D) -> void:
 	print('body entered from spear')
 	if body.name == "Player":
-		body.take_damage(10)
+		body.take_damage(50)
 		queue_free()
 	pass # Replace with function body.

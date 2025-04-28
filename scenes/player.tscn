@@ -204,7 +204,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack 1",
-"speed": 14.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -341,7 +341,7 @@ visibility_layer = 3
 position = Vector2(-63, -65)
 scale = Vector2(1, 0.984375)
 sprite_frames = SubResource("SpriteFrames_fjrip")
-animation = &"attack 1"
+animation = &"die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-64, -37)
