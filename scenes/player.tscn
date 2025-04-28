@@ -46,8 +46,8 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_smehm"]
-radius = 11.0468
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
+height = 62.9841
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(72, -8)
@@ -62,6 +62,6 @@ autoplay = "idle"
 frame_progress = 0.144415
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-58, -26)
+position = Vector2(-64, -37)
 scale = Vector2(1, 0.984375)
-shape = SubResource("CircleShape2D_smehm")
+shape = SubResource("CapsuleShape2D_g2els")
