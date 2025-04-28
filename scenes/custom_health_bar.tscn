@@ -43,9 +43,11 @@ offset_top = -3.7
 offset_bottom = 2.59
 theme_override_styles/background = SubResource("StyleBoxEmpty_wq3hh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_gvy4k")
+step = 1.0
 show_percentage = false
 
 [node name="ResetVisibility" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="ready" from="ProgressBar" to="." method="_on_progress_bar_ready"]
 [connection signal="timeout" from="ResetVisibility" to="." method="_on_reset_visibility_timeout"]

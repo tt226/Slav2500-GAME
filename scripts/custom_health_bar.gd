@@ -35,3 +35,7 @@ func _change_opacity(new_amount: float):
 
 func _on_reset_visibility_timeout() -> void:
 	_change_opacity(0.0)  
+
+
+func _on_progress_bar_ready() -> void:
+	_setup_health_bar(100)

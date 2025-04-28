@@ -136,3 +136,6 @@ func throw_blood():
 
 	blood.global_position = spawn_pos
 	blood.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
+
+func take_damage(amount: int):
+	print(amount)
