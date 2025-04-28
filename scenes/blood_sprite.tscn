@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://pf5u23femtw4"]
+[gd_scene load_steps=7 format=3 uid="uid://b0ltaucderdoi"]
 
 [ext_resource type="Texture2D" uid="uid://cmvs4mg780lbk" path="res://assets/sprites/Countess_Vampire/Blood_Charge_1.png" id="1_wk5my"]
 
@@ -32,7 +32,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6elpu"]
-radius = 3.16228
+radius = 7.07107
 
 [node name="Area2D" type="Area2D"]
 position = Vector2(-6, 0)
@@ -47,5 +47,5 @@ frame = 2
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(33, -18)
+position = Vector2(36, -18)
 shape = SubResource("CircleShape2D_6elpu")

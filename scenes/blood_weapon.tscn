@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://8cpg1xxpwnhr"]
+
+[ext_resource type="Script" uid="uid://dr51y518iqsfd" path="res://scripts/blood_weapon.gd" id="2_23jcr"]
+[ext_resource type="Texture2D" uid="uid://crtm3l1a1xd01" path="res://assets/sprites/Countess_Vampire/Blood_Charge_4.png" id="3_rkrh6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juia8"]
+atlas = ExtResource("3_rkrh6")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23jcr"]
+atlas = ExtResource("3_rkrh6")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86y5e"]
+atlas = ExtResource("3_rkrh6")
+region = Rect2(128, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkrh6"]
+atlas = ExtResource("3_rkrh6")
+region = Rect2(192, 0, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0rnr"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_juia8")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_23jcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86y5e")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_23jcr")
+}, {
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_rkrh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juia8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juia8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hca0f"]
+radius = 6.0
+
+[node name="Blood_weapon" type="Area2D"]
+position = Vector2(5, 3)
+collision_layer = 2
+script = ExtResource("2_23jcr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g0rnr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 0)
+shape = SubResource("CircleShape2D_hca0f")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.087
+one_shot = true
