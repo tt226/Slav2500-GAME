@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://c7xbqt06uhxr0"]
+[gd_scene load_steps=36 format=3 uid="uid://dssfrbe0jrwgn"]
 
 [ext_resource type="Texture2D" uid="uid://jtajoxdgyyd1" path="res://assets/sprites/Skeleton_Archer/Shot_1.png" id="2_ssl1b"]
 [ext_resource type="Script" uid="uid://dq1s5mgr63w1b" path="res://scripts/skeleton.gd" id="2_txkty"]
 [ext_resource type="Texture2D" uid="uid://dkxbtr61in1sv" path="res://assets/sprites/Skeleton_Archer/Dead.png" id="2_w4hcs"]
 [ext_resource type="Texture2D" uid="uid://bctcfq34t78g7" path="res://assets/sprites/Skeleton_Archer/Walk.png" id="4_haw2w"]
+[ext_resource type="PackedScene" uid="uid://e7mpbbqmqbs4" path="res://scenes/spear.tscn" id="5_5pgwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivqcw"]
 atlas = ExtResource("2_w4hcs")
@@ -219,25 +220,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xbje2"]
-radius = 24.6357
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnirc"]
+height = 72.0
 
 [node name="Skeleton" type="CharacterBody2D" groups=["enemies"]]
 position = Vector2(-8, -14)
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_txkty")
+projectile_scene = ExtResource("5_5pgwy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(52.5, -56)
+position = Vector2(9.00001, -58)
 scale = Vector2(1.11719, 1.14063)
 sprite_frames = SubResource("SpriteFrames_05nho")
 animation = &"walk"
 frame_progress = 0.396141
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(54, -33)
+position = Vector2(9.00001, -27)
 scale = Vector2(1.01563, 1)
-shape = SubResource("CircleShape2D_xbje2")
+shape = SubResource("CapsuleShape2D_bnirc")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(50, 0)

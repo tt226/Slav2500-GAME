@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://celvkr3fbgxkw"]
+[gd_scene load_steps=11 format=3 uid="uid://celvkr3fbgxkw"]
 
 [ext_resource type="PackedScene" uid="uid://xdgsf5g01ux0" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://3lcdtd7adlw4" path="res://assets/world/Tiles.png" id="2_lnu2h"]
+[ext_resource type="PackedScene" path="res://scenes/blood_vial.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dxmwgap84tou0" path="res://assets/world/Background_0.png" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://b572v04goksxb" path="res://scenes/KillZone.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://cyww6006j4dkx" path="res://scenes/blood_vial.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://bpv81pqew7po" path="res://scenes/custom_health_bar.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://c7xbqt06uhxr0" path="res://scenes/skeleton.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" path="res://scenes/custom_health_bar.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dssfrbe0jrwgn" path="res://scenes/skeleton.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://b572v04goksxb" path="res://scenes/KillZone.tscn" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_lnu2h")
@@ -440,7 +440,8 @@ texture = ExtResource("2_lnu2h")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_iywne"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gee14"]
+distance = -13.0
 
 [node name="Game" type="Node2D"]
 position = Vector2(-7, 3)
@@ -479,12 +480,6 @@ position = Vector2(1897, -161)
 scale = Vector2(-1.708, 1.207)
 texture = ExtResource("3_lbhrr")
 
-[node name="Killzone" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(215, 85)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 3)
-shape = SubResource("WorldBoundaryShape2D_iywne")
 [node name="blood_vial" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(177, -9)
 
@@ -495,6 +490,12 @@ offset_right = 581.0
 offset_bottom = -168.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Skeleton" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(297, -14)
+[node name="Killzone2" parent="." instance=ExtResource("7_u5sy4")]
+position = Vector2(50, 112)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone2"]
+position = Vector2(15, -3)
+shape = SubResource("WorldBoundaryShape2D_gee14")
+
+[node name="Skeleton" parent="." instance=ExtResource("4_lbhrr")]
+position = Vector2(291, -46)
