@@ -5,7 +5,7 @@ class_name CustomHealthBar
 var change_value_tween: Tween 
 var opacity_tween: Tween 
 
-func setup_health_bar(max_val: float):
+func _setup_health_bar(max_val: float):
 	value = max_val 
 	max_value = max_val 
 	$ProgressBar.value = max_val 
@@ -29,12 +29,13 @@ func _change_opacity(new_amount: float):
 		opacity_tween.kill()
 	opacity_tween = create_tween()
 	opacity_tween.tween_property(self, "modulate:a", new_amount, 0.12).set_trans(Tween.TRANS_SINE)
+	 
+	
+	
 
 func _on_reset_visibility_timeout() -> void:
 	_change_opacity(0.0)  
 
-func remove_health(reduction_amount: int):
-	change_value(value - reduction_amount)
-	
-func add_health(addition_amount: int):
-	change_value(value + addition_amount)
+
+func _on_progress_bar_ready() -> void:
+	_setup_health_bar(100)
