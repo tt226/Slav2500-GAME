@@ -490,3 +490,15 @@ shape = SubResource("WorldBoundaryShape2D_gee14")
 
 [node name="Skeleton" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(291, -46)
+
+[node name="Background2" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(588, -661)
+scale = Vector2(1.70833, 1.20673)
+texture = ExtResource("3_lbhrr")
+
+[node name="Background3" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(1898, -659)
+scale = Vector2(1.70833, 1.20673)
+texture = ExtResource("3_lbhrr")

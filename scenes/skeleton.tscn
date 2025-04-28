@@ -232,7 +232,8 @@ projectile_scene = ExtResource("5_5pgwy")
 position = Vector2(9.00001, -58)
 scale = Vector2(1.11719, 1.14063)
 sprite_frames = SubResource("SpriteFrames_05nho")
-animation = &"dead"
+animation = &"hit"
+frame_progress = 0.348408
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9.00001, -27)
