@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://xdgsf5g01ux0"]
+[gd_scene load_steps=48 format=3 uid="uid://xdgsf5g01ux0"]
 
 [ext_resource type="Texture2D" uid="uid://cf3poteqhptb6" path="res://assets/sprites/Countess_Vampire/Idle.png" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://5tpssr40g2gp" path="res://assets/sprites/Countess_Vampire/Attack_1.png" id="1_smehm"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://g0emic6ye032" path="res://assets/sprites/Countess_Vampire/Dead.png" id="5_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://bebyk6ug7aavh" path="res://assets/sprites/Countess_Vampire/Jump.png" id="7_jej6c"]
 [ext_resource type="Texture2D" uid="uid://dki2n52uhj8s4" path="res://assets/sprites/Countess_Vampire/Walk.png" id="8_f1ej7"]
+[ext_resource type="PackedScene" uid="uid://bpv81pqew7po" path="res://scenes/custom_health_bar.tscn" id="9_ur7pv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
 atlas = ExtResource("1_smehm")
@@ -347,3 +348,9 @@ frame_progress = 0.711485
 position = Vector2(-64, -37)
 scale = Vector2(1, 0.984375)
 shape = SubResource("CapsuleShape2D_g2els")
+
+[node name="CustomHealthBar" parent="." instance=ExtResource("9_ur7pv")]
+offset_left = -78.0
+offset_top = -82.0
+offset_right = 47.0
+offset_bottom = -67.0
