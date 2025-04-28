@@ -2,12 +2,16 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -700.0
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
+		if velocity.y > 0:
+			velocity.y += get_gravity().y * .9 * delta 
+		else:  # Rising (going up)
+			velocity.y += get_gravity().y * delta
 		velocity += get_gravity() * delta
 
 	# Handle jump.
