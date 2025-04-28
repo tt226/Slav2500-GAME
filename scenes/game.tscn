@@ -36,4 +36,4 @@ offset_bottom = -168.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Skeleton" parent="." instance=ExtResource("4_lbhrr")]
-position = Vector2(228, -4)
+position = Vector2(297, -14)
