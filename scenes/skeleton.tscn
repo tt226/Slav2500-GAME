@@ -62,13 +62,13 @@ region = Rect2(896, 0, 128, 128)
 atlas = ExtResource("2_ssl1b")
 region = Rect2(1024, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v6rpr"]
-atlas = ExtResource("2_ssl1b")
-region = Rect2(1152, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yhqa"]
 atlas = ExtResource("2_ssl1b")
 region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6rpr"]
+atlas = ExtResource("2_ssl1b")
+region = Rect2(1152, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2iffn"]
 atlas = ExtResource("2_ssl1b")
@@ -141,49 +141,49 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_haw2w")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_i0f3v")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_xrus2")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_7e1v2")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_rjsi3")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_3nhjk")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ghshk")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_e85v8")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_f63t1")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v6rpr")
-}, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_6yhqa")
 }, {
-"duration": 1.0,
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_v6rpr")
+}, {
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_2iffn")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_67pwj")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_dnc0r")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_l18t7")
 }],
 "loop": true,
@@ -232,8 +232,7 @@ projectile_scene = ExtResource("5_5pgwy")
 position = Vector2(9.00001, -58)
 scale = Vector2(1.11719, 1.14063)
 sprite_frames = SubResource("SpriteFrames_05nho")
-animation = &"walk"
-frame_progress = 0.396141
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9.00001, -27)

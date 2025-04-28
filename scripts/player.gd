@@ -101,9 +101,9 @@ func update_animation() -> void:
 		State.ATTACK:
 			play_animation("attack 1")  # Set your attack animation name here
 
-func play_animation(name: String) -> void:
-	if sprite.animation != name:
-		sprite.play(name)
+func play_animation(animation_name: String) -> void:
+	if sprite.animation != animation_name:
+		sprite.play(animation_name)
 
 func start_attack():
 	state = State.ATTACK
