@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://xdgsf5g01ux0" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://3lcdtd7adlw4" path="res://assets/world/Tiles.png" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://dxmwgap84tou0" path="res://assets/world/Background_0.png" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://b572v04goksxb" path="res://KillZone.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://b572v04goksxb" path="res://scenes/KillZone.tscn" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_lnu2h")
