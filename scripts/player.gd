@@ -5,10 +5,12 @@ const WALK_SPEED = 100.0
 const JUMP_VELOCITY = -500.0
 const DOUBLE_JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+const BLOOD_COST = 5
 
 # State Machine
 enum State { IDLE, WALK, JUMP, FALL, ATTACK }
 var state = State.IDLE
+var health = 100
 
 # Flags
 var has_double_jumped: bool = false
@@ -17,11 +19,13 @@ var attack_blood_thrown: bool = false  # To prevent spawning multiple bloods in 
 
 # Nodes
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_bar: CustomHealthBar = $CustomHealthBar
 
 func _ready() -> void:
 	sprite.play("idle")
 	sprite.connect("frame_changed", Callable(self, "_on_sprite_frame_changed"))
-
+	health_bar.setup_health_bar(health)
+	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -136,6 +140,12 @@ func throw_blood():
 
 	blood.global_position = spawn_pos
 	blood.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
+	take_damage(BLOOD_COST)
 
 func take_damage(amount: int):
-	print(amount)
+	health -= amount
+	health_bar.remove_health(amount)
+
+func increase_health(amount: int):
+	health += amount
+	health_bar.add_health(amount)
