@@ -3,8 +3,8 @@ extends Node
 # "how can I manage navigating between levels/scenes in Godot"
 
 const levels = [
-	"res://scenes/game.tscn",
-	"res://scenes/level_2.tscn"
+	"res://scenes/level_1.tscn",
+	"res://scenes/level_2.tscn",
 ]
 
 var current_level = 0

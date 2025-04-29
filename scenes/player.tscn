@@ -331,6 +331,7 @@ animations = [{
 height = 62.9841
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 14
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ur7pv")
@@ -358,7 +359,7 @@ position = Vector2(1, -47)
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = -700
-limit_right = 2000
+limit_right = 100000
 limit_bottom = 0
 limit_smoothed = true
 position_smoothing_enabled = true
