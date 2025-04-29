@@ -5,7 +5,7 @@ const WALK_SPEED = 125.0
 const JUMP_VELOCITY = -500.0
 const DOUBLE_JUMP_VELOCITY = -400.0
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-const BLOOD_COST = 5
+const BLOOD_COST = 15
 
 # State Machine
 enum State { IDLE, WALK, JUMP, FALL, ATTACK }
