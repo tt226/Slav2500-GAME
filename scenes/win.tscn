@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://8hhn3hiaotse"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 271.0
+offset_top = 148.0
+offset_right = 356.0
+offset_bottom = 186.0
+text = "You win
+"

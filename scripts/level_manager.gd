@@ -5,6 +5,7 @@ extends Node
 const levels = [
 	"res://scenes/level_1.tscn",
 	"res://scenes/level_2.tscn",
+	"res://scenes/win.tscn"
 ]
 
 var current_level = 0
