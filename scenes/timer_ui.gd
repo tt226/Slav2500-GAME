@@ -3,6 +3,12 @@ extends Node2D
 @onready var daylight_timer: Timer = $DaylightTimer
 @onready var daylight_label: Label = $UI/Label
 
+@export var time_for_level: int = 20
+
+func _ready() -> void:
+	daylight_timer.wait_time = time_for_level
+	daylight_timer.start()
+
 func _process(_delta):
 	if daylight_timer.is_stopped():
 		return
