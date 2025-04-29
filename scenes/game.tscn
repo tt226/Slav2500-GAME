@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://celvkr3fbgxkw"]
+[gd_scene load_steps=14 format=3 uid="uid://celvkr3fbgxkw"]
 
 [ext_resource type="PackedScene" uid="uid://xdgsf5g01ux0" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://3lcdtd7adlw4" path="res://assets/world/Tiles.png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cyww6006j4dkx" path="res://scenes/blood_vial.tscn" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dxmwgap84tou0" path="res://assets/world/Background_0.png" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://dssfrbe0jrwgn" path="res://scenes/skeleton.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://cw1bl1uk3o76l" path="res://scenes/level_portal.tscn" id="7_gee14"]
+[ext_resource type="PackedScene" uid="uid://n1lvov4umgec" path="res://scenes/level_portal.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://b572v04goksxb" path="res://scenes/KillZone.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://behhkdu0osxrg" path="res://scenes/timer_ui.tscn" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_lnu2h")
@@ -489,11 +490,6 @@ shape = SubResource("WorldBoundaryShape2D_gee14")
 [node name="Skeleton" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(291, -46)
 
-[node name="DaylightTimer" type="Timer" parent="."]
-wait_time = 20.0
-one_shot = true
-autostart = true
-
 [node name="Background2" type="Sprite2D" parent="."]
 z_index = -5
 position = Vector2(588, -661)
@@ -523,20 +519,8 @@ position = Vector2(-8, -42)
 collision_layer = 3
 collision_mask = 3
 
-[node name="UI" type="CanvasLayer" parent="."]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-7, 1)
 shape = SubResource("WorldBoundaryShape2D_u5sy4")
-[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="UI"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 23.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 33
-text = "Time til Daylight: 60"
-horizontal_alignment = 1
-
-[connection signal="timeout" from="DaylightTimer" to="Player" method="_on_daylight_timer_timeout"]
+[node name="TimerUI" parent="." instance=ExtResource("8_gee14")]

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Constants
-const WALK_SPEED = 100.0
+const WALK_SPEED = 125.0
 const JUMP_VELOCITY = -500.0
 const DOUBLE_JUMP_VELOCITY = -400.0
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -29,6 +29,7 @@ func _ready() -> void:
 	sprite.connect("frame_changed", Callable(self, "_on_sprite_frame_changed"))
 	health_bar._setup_health_bar(max_health)  
 	health_bar.change_value(current_health)   
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -144,6 +145,8 @@ func throw_blood():
 	blood.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
 	take_damage(BLOOD_COST)
 
+var is_dead = false
+
 func take_damage(amount: int):
 	if is_dead:
 		return  # Ignore damage after dying
@@ -205,27 +208,3 @@ func die():
 func _on_death_timer_timeout():
 	get_tree().reload_current_scene()
 	
-@onready var daylight_timer: Timer = get_node("/root/Game/DaylightTimer")
-@onready var daylight_label: Label = get_node("/root/Game/UI/Label")
-
-func _process(_delta):
-	if daylight_timer.is_stopped():
-		return
-	
-	var time_left = int(daylight_timer.time_left)
-	daylight_label.text = "Time til Daylight: " + str(time_left)
-
-	# Flash red when under 15 seconds
-	if time_left <= 15:
-		var flash = int(Time.get_ticks_msec() / 200) % 2 == 0
-		if flash:
-			daylight_label.modulate = Color(1, 0, 0)  # Red
-		else:
-			daylight_label.modulate = Color(1, 1, 1)  # White
-	else:
-		# If more than 15 seconds, keep normal color
-		daylight_label.modulate = Color(1, 1, 1)
-
-
-func _on_daylight_timer_timeout() -> void:
-	die()
